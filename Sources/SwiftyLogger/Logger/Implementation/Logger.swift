@@ -26,11 +26,9 @@
 //    SOFTWARE.
 
 public class Logger {
-    public static let shared: Logger = Logger()
-    
     var loggers: [LoggerServiceProtocol] = []
     
-    private init() {
+    public init() {
         self.loggers = [ConsoleLogger()]
     }
 }
