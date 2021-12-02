@@ -6,7 +6,7 @@ final class SwiftyLoggerTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        let logger = Logger.shared
+        let logger = Logger()
         logger.registerServices(.consoleLogger, .firebaseAnalyticsLogger)
         logger.log(type: .info, name: "testLog", description: "Test log example", parameters: ["SwiftyLoggerVersion": 1.0])
     }

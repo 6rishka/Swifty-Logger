@@ -42,18 +42,18 @@ extension Logger: LoggerProtocol {
 
     public func registerServices(_ loggerServices: LoggerServiceType...) {
         for type in loggerServices {
-            let isLoggerAlreadyRegistered = Self.shared.loggers.contains(where: { logger in
+            let isLoggerAlreadyRegistered = loggers.contains(where: { logger in
                 return logger.type == type
             })
             if !isLoggerAlreadyRegistered {
-                Self.shared.loggers.append(type.instantiateService())
+                loggers.append(type.instantiateService())
             }
         }
     }
 
     public func unregisterServices(_ loggerServices: LoggerServiceType...) {
         for type in loggerServices {
-            Self.shared.loggers.removeAll(where: { logger in
+            loggers.removeAll(where: { logger in
                 return logger.type == type
             })
         }
